@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+        <script>
+
+            // Template for roll requests
+            const template=Handlebars.compile("<li>Your rolled a {{value}}</li>");
+
+            document.addEventListener('DOMContentLoaded',()=>{
+                document.querySelector('#roll').onclick=()=>{
+
+                    //  Generate a random roll
+                    const roll=Math.floor((Math.random()*9)+0);
+
+                    //  Add roll result to DOM
+                    const content=template({'value':roll});
+                    document.querySelector('#rolls').innerHTML+=content;
+                }
+            })
+
+
+        </script>
+    </head>
+    <body>
+        <button id="roll" > RollBtn</button>
+        <ul id="rolls">
+
+        </ul>
+    </body>
+</html>
